@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<style>
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Body padding for fixed navbar */
+body {
+    padding-top: 100px;
+    margin: 0;
+}
+
+/* Sections */
+section {
+    padding: 80px;
+    scroll-margin-top: 100px;
+}
+
+/* Hero */
+.hero {
+    height: 100vh;
+    background: linear-gradient(to right, #0d6efd, #6610f2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Fixed Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Dropdown/Menu */
+.dropdown-menu,
+.menu {
+    position: absolute;
+    z-index: 2000; /* higher than navbar */
+}
+/* Fade animation */
+.fade-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+
+.fade-section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Back to top */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0d6efd;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 18px;
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.back-to-top:hover {
+    transform: scale(1.1);
+    background: #6610f2;
+}
+
+/* WhatsApp */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+.hero{
+    padding: 0px;
+    margin: 0px;
+}
+
+.whatsapp img {
+    width: 55px;
+    transition: 0.3s;
+}
+
+.whatsapp img:hover {
+    transform: scale(1.1);
+}
+
+/* Cards hover */
+.card {
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.instagram {
+    position: fixed;
+    bottom: 90px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.instagram img {
+    width: 55px;
+    transition: 0.3s;
+}
+
+.instagram img:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+.facebook {
+    position: fixed;
+    bottom: 160px;   /* adjust position above Instagram */
+    left: 20px;
+    z-index: 1000;
+}
+
+.facebook img {
+    width: 55px;
+    transition: 0.3s;
+  }
+.facebook img:hover {
+    transform: scale(1.2) rotate(-10deg);
+}
+/* PROJECT SECTION BACKGROUND */
+.project-section {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+/* PROJECT CARD DESIGN */
+.project-card {
+    border: none;
+    border-radius: 16px;
+    background: white;
+    transition: 0.4s;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    position: relative;
+}
+
+/* HOVER EFFECT */
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* ICON STYLE */
+.project-card .icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* DIFFERENT COLOR ACCENTS */
+.project-card:nth-child(1) {
+    border-top: 4px solid #0d6efd; /* Blue */
+}
+.hero{
+ 
+  padding: 30px;
+  margin: 0px;
+  
+}
+
+.project-card:nth-child(2) {
+    border-top: 4px solid #22c55e; /* Green */
+}
+
+.project-card:nth-child(3) {
+    border-top: 4px solid #f59e0b; /* Orange */
+}
+.project-card:nth-child(1) {
+    border-top: 4px solid #0d6efd;
+}
+
+.project-card:nth-child(2) {
+    border-top: 4px solid #22c55e;
+}
+
+.project-card:nth-child(3) {
+    border-top: 4px solid #f59e0b;
+}
+/* TWITTER ICON */
+.twitter {
+    position: fixed;
+    left: 20px;
+    bottom: 230px;   /* place above Facebook */
+    z-index: 1000;
+}
+
+.twitter img {
+    width: 55px;
+    transition: 0.3s;
+}
+
+.twitter img:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+.linkedin {
+    position: fixed;
+    bottom: 300px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.linkedin img {
+    width: 55px;
+    transition: 0.3s;
+}
+
+.linkedin img:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+.about-section {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.about-box {
+    background: pink;
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 5px solid #0d6efd;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.highlight {
+    color: #0d6efd;
+    font-weight: bold;
+}
+.project-section {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.project-card {
+    border: none;
+    border-radius: 16px;
+    background: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.4s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(13,110,253,0.2);
+}
+
+/* Top border colors */
+.project-card:nth-child(1) {
+    border-top: 4px solid #0d6efd;
+}
+
+.project-card:nth-child(2) {
+    border-top: 4px solid #22c55e;
+}
+
+.project-card:nth-child(3) {
+    border-top: 4px solid #f59e0b;
+}
+
+.project-title {
+    color: #0d6efd;
+    font-weight: bold;
+}
+.project-card {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px);
+}
+.skill-card {
+    box-shadow: 0 10px 25px rgba(0, 200, 255, 0.25);
+    transition: 0.4s ease;
+    border-radius: 12px;
+}
+
+.skill-card:hover {
+    box-shadow: 0 30px 70px red(0, 255, 255, 0.45);
+    transform: translateY(-12px);
+}
+#contact form {
+    background: rgba(255,255,255,0.1);
+    padding: 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('home-bg.jpg') no-repeat center center/cover;
+    color: white;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.project-card {
+    border: none;
+    border-radius: 16px;
+    background: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Hover Effect */
+.project-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+}
+
+/* Glow Border Effect */
+.project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #0d6efd, #6610f2, #22c55e);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover::before {
+    transform: scaleX(1);
+}
+.skill-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 25px rgba(0, 200, 255, 0.15);
+    text-align: center;
+}
+
+/* Hover Effect */
+.skill-card:hover {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 25px 60px rgba(0, 200, 255, 0.35);
+    background: linear-gradient(135deg, #e0f7ff, #ffffff);
+}
+
+/* Text effect */
+.skill-card h5 {
+    transition: 0.3s;
+}
+
+.skill-card:hover h5 {
+    color: #0d6efd;
+    letter-spacing: 1px;
+}
+
+/* Optional icon animation */
+.skill-card:hover i {
+    transform: rotate(10deg) scale(1.2);
+}
+/* Section card effect */
+#technical-skills {
+    transition: 0.4s ease;
+}
+
+#technical-skills:hover {
+    background: linear-gradient(135deg, #f1f8ff, #ffffff);
+}
+
+/* Progress container */
+#technical-skills .progress {
+    height: 18px;
+    border-radius: 50px;
+    overflow: hidden;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* Hover effect on bar */
+#technical-skills .progress:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.25);
+}
+
+/* Progress bar animation */
+.progress-bar {
+    transition: width 1.5s ease-in-out;
+    font-weight: bold;
+}
+
+/* Hover glow effect */
+#technical-skills .progress-bar:hover {
+    filter: brightness(1.2);
+}
+.about-box {
+    box-shadow: 0 10px 25px rgba(13, 110, 253, 0.2);
+    transition: 0.4s ease;
+}
+
+.about-box:hover {
+    box-shadow: 0 0 30px rgba(13, 110, 253, 0.5);
+}
+#technical-skills {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease;
+}
+
+#technical-skills:hover {
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+}
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('home-bg.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero .btn {
+    border-radius: 30px;
+    padding: 10px 25px;
+    transition: 0.3s ease;
+}
+
+.hero .btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255,255,255,0.3);
+}#qualification h2 {
+    font-weight: bold;
+    color: #0d6efd;
+    letter-spacing: 1px;
+}
+.qualification-card tbody tr {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: rowFade 0.6s ease forwards;
+}
+
+/* Delay each row */
+.qualification-card tbody tr:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.qualification-card tbody tr:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+@keyframes rowFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.profile-img {
+    animation: floatImg 4s ease-in-out infinite;
+}
+
+@keyframes floatImg {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+#about img {
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    border-radius: 50%;
+    transition: 0.4s ease;
+}
+
+#about img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 60px rgba(13,110,253,0.4);
+}
+</style>
+</head>
+
+<body>
+  
+
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top ;">
+<div class="container">
+ 
+
+<a class="navbar-brand" href="#home">
+<img src="sk 1010.png"40" height="40" class="rounded-circle">
+Nitin Galave
+</a>
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navMenu">
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+<li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+<li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+<li class="nav-item"><a class="nav-link" href="#technical-skills">Technical Skills</a></li>
+<li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
+<li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
+<li class="nav-item"><a class="nav-link" href="#qualification">Qualification</a></li>
+<li class="nav-item">
+  <a class="nav-link" href="#resume">Resume</a>
+  <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+</li>
+
+<li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+
+</ul>
+</div>
+
+</div>
+</nav>
+
+<div id="google_translate_element"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,hi,mr',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- HOME -->
+<section id="home" class="hero d-flex align-items-center">
+  <div class="container text-center">
+
+    <img src="N...g.jpeg " width="300"
+         class="rounded-circle mb-4 profile-img"
+         alt="Nitin Galave">
+
+    <h1 class="animate__animated animate__fadeInDown">
+      Hello, I'm Nitin Galave
+    </h1>
+
+    <p class="lead animate__animated animate__fadeInUp animate__delay-1s">
+      Web Developer | Student | Designer
+    </p>
+
+    <div class="mt-4">
+      <a href="#about"
+         class="btn btn-light btn-lg me-3 animate__animated animate__zoomIn animate__delay-2s">
+        Learn More
+      </a>
+
+      <a href="#contact"
+         class="btn btn-outline-light btn-lg animate__animated animate__zoomIn animate__delay-2s">
+        Contact Me
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section id="about" class="about-section py-5">
+
+  <div class="container">
+
+    <h2 class="text-center mb-5">👨‍💻 About Me</h2>
+
+    <div class="row align-items-center">
+
+      <!-- PROFILE IMAGE -->
+      <div class="col-md-4 text-center mb-4">
+        <img src="nn1010.jpeg" width="300"
+         class="rounded-circle mb-4 profile-img"
+         alt="Nitin Galave">
+      </div>
+
+      <!-- TEXT -->
+      <div class="col-md-8">
+        <div class="about-box">
+
+          <h3>Hello! I'm <span class="highlight">Nitin Galave</span></h3>
+
+          <p>
+            I am a passionate <b>Computer Science Student</b> and aspiring <b>Full Stack Web Developer</b>.
+            I enjoy building modern, responsive and user-friendly websites using HTML, CSS, Bootstrap, and JavaScript.
+          </p>
+
+          <p>
+            I love learning new technologies and improving my coding skills every day.
+            My goal is to become a professional developer and create impactful digital solutions.
+          </p>
+
+          <p>
+            I am currently focused on improving my skills in <b>Frontend Development</b> and <b>Problem Solving</b>.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<div class="row align-items-center">
+
+
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+</section>
+<!-- PROJECTS -->
+<section id="projects" class="py-5 fade-section project-section">
+<div class="container">
+
+<h2 class="text-center mb-5">🚀 My Projects</h2>
+
+<div class="row g-4">
+
+<!-- Project 1 -->
+<<div class="modal fade" id="portfolioModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Portfolio Website</h5>
+
+        <button class="btn-close btn-close-white"
+                data-bs-dismiss="modal">
+        </button>
+      </div>
+
+      <div class="modal-body">
+
+        <img src="portfolio.png"
+             class="img-fluid rounded mb-3">
+
+        <h4>Portfolio Website</h4>
+
+        <p>
+            This is my personal portfolio website developed
+            using HTML, CSS, Bootstrap and JavaScript.
+        </p>
+
+        <ul>
+            <li>Responsive Design</li>
+            <li>Bootstrap 5</li>
+            <li>Animations</li>
+            <li>Contact Form</li>
+            <li>Projects Section</li>
+        </ul>
+
+      </div>
+
+      <div class="modal-footer">
+
+        <a href="iiiiiiii.html"
+           class="btn btn-primary">
+           Open Project
+        </a>
+
+        <button class="btn btn-secondary"
+                data-bs-dismiss="modal">
+            Close
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Project 2 -->
+<div class="modal fade" id="studentModal" tabindex="-1">
+<div class="modal-dialog modal-lg modal-dialog-centered">
+<div class="modal-content">
+
+<div class="modal-header bg-success text-white">
+<h5 class="modal-title">Student Management System</h5>
+
+<button class="btn-close btn-close-white"
+data-bs-dismiss="modal"></button>
+
+</div>
+
+<div class="modal-body">
+
+<img src="student.png"
+class="img-fluid rounded mb-3">
+
+<h4>Student Management System</h4>
+
+<p>
+Student Management System developed using HTML,
+CSS, Bootstrap and JavaScript.
+</p>
+
+<ul>
+<li>Add Student</li>
+<li>Edit Student</li>
+<li>Delete Student</li>
+<li>Search Student</li>
+<li>Responsive Design</li>
+</ul>
+
+</div>
+
+<div class="modal-footer">
+
+<a href="ss.html"
+class="btn btn-success">
+Open Project
+</a>
+
+<button class="btn btn-secondary"
+data-bs-dismiss="modal">
+Close
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- Project 3 -->
+<div class="modal fade" id="calculatorModal" tabindex="-1">
+<div class="modal-dialog modal-lg modal-dialog-centered">
+<div class="modal-content">
+
+<div class="modal-header bg-warning">
+<h5 class="modal-title">Calculator App</h5>
+
+<button class="btn-close"
+data-bs-dismiss="modal"></button>
+
+</div>
+
+<div class="modal-body">
+
+<img src="calculator.png"
+class="img-fluid rounded mb-3">
+
+<h4>Calculator App</h4>
+
+<p>
+A calculator created using HTML, CSS and JavaScript.
+It performs basic arithmetic operations.
+</p>
+
+<ul>
+<li>Addition</li>
+<li>Subtraction</li>
+<li>Multiplication</li>
+<li>Division</li>
+<li>Responsive UI</li>
+</ul>
+
+</div>
+
+<div class="modal-footer">
+
+<a href="cal.html.png"
+class="btn btn-warning">
+Open Project
+</a>
+
+<button class="btn btn-secondary"
+data-bs-dismiss="modal">
+Close
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section id="skills" class="py-5" style="background: linear-gradient(120deg, #89f7fe, #66a6ff);">
+<div class="container">
+
+<h2 class="text-center mb-5 text-dark animate__animated animate__fadeInDown">
+🎯 Skills
+</h2>
+
+<div class="row">
+
+<!-- Skill 1 -->
+<div class="col-md-3 col-sm-6 mb-4">
+<div class="card text-center shadow border-0 animate__animated animate__zoomIn">
+<div class="card-body">
+<h5 class="text-primary">💻 Web Development</h5>
+<p>HTML, CSS, Bootstrap, JavaScript</p>
+</div>
+</div>
+</div>
+
+<!-- Skill 2 -->
+<div class="col-md-3 col-sm-6 mb-4">
+<div class="card text-center shadow border-0 animate__animated animate__zoomIn animate__delay-1s">
+<div class="card-body">
+<h5 class="text-success">🧠 Programming</h5>
+<p>C, C++, Java, Python</p>
+</div>
+</div>
+</div>
+
+<!-- Skill 3 -->
+<div class="col-md-3 col-sm-6 mb-4">
+<div class="card text-center shadow border-0 animate__animated animate__zoomIn animate__delay-2s">
+<div class="card-body">
+<h5 class="text-danger">🗄️ Database</h5>
+<p>MySQL, SQL Queries</p>
+</div>
+</div>
+</div>
+
+<!-- Skill 4 -->
+<div class="col-md-3 col-sm-6 mb-4">
+<div class="card text-center shadow border-0 animate__animated animate__zoomIn animate__delay-3s">
+<div class="card-body">
+<h5 class="text-warning">⚡ Problem Solving</h5>
+<p>Logic building & analytical thinking</p>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<<!-- TECHNICAL SKILLS -->
+<section id="technical-skills" class="bg-light fade-section py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Technical Skills</h2>
+
+    <p>HTML</p>
+    <div class="progress mb-3">
+      <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+           role="progressbar"
+           style="width: 90%;">
+        90%
+      </div>
+    </div>
+
+    <p>CSS</p>
+    <div class="progress mb-3">
+      <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+           role="progressbar"
+           style="width: 85%;">
+        85%
+      </div>
+    </div>
+
+    <p>JavaScript</p>
+    <div class="progress mb-3">
+      <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+           role="progressbar"
+           style="width: 80%;">
+        80%
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="certificates" class="py-5" style="background: linear-gradient(120deg, #ffecd2, #fcb69f);">
+<div class="container">
+
+<h2 class="text-center mb-5 text-dark animate__animated animate__fadeInDown">
+🏆 Certificates
+</h2>
+
+<div class="row">
+
+<!-- Certificate 1 -->
+<div class="col-md-4 mb-3">
+<div class="card text-center shadow border-0 animate__animated animate__zoomIn">
+<div class="card-body">
+<h5 class="text-primary">💻 Web Development</h5>
+<a href="hh.html.webp"><button>View</button></a>
+</div>
+</div>
+</div>
+
+<!-- Certificate 2 -->
+<div class="col-md-4 mb-3">
+<div class="card text-center shadow border-0 animate__animated animate__zoomIn animate__delay-1s">
+<div class="card-body">
+<h5 class="text-success">🐍 Python Programming</h5>
+<p>Learned Python basics and programming fundamentals.</p>
+</div>
+</div>
+</div>
+
+<!-- Certificate 3 -->
+<div class="col-md-4 mb-3">
+<div class="card text-center shadow border-0 animate__animated animate__zoomIn animate__delay-2s">
+<div class="card-body">
+<h5 class="text-danger">📊 Data Analytics</h5>
+<p>Introduction to data analysis and visualization tools.</p>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section id="achievements" class="py-5" style="background: linear-gradient(120deg, #ffecd2, #fcb69f);">
+<div class="container">
+
+<h2 class="text-center mb-5 text-dark animate__animated animate__fadeInDown">
+🏆 Achievements
+</h2>
+
+<div class="row">
+
+<!-- Card 1 -->
+<div class="col-md-4 mb-3">
+<div class="card text-center shadow border-0 animate__animated animate__zoomIn">
+<div class="card-body">
+<h5 class="text-primary">🎓 Academic Excellence</h5>
+<p>Scored good marks in college exams and improved coding skills.</p>
+</div>
+</div>
+</div>
+
+<!-- Card 2 -->
+<div class="col-md-4 mb-3">
+<div class="card text-center shadow border-0 animate__animated animate__zoomIn animate__delay-1s">
+<div class="card-body">
+<h5 class="text-success">💻 Web Projects</h5>
+<p>Completed 10+ HTML, CSS, Bootstrap projects successfully.</p>
+</div>
+</div>
+</div>
+
+<!-- Card 3 -->
+<div class="col-md-4 mb-3">
+<div class="card text-center shadow border-0 animate__animated animate__zoomIn animate__delay-2s">
+<div class="card-body">
+<h5 class="text-danger">🏅 Competition</h5>
+<p>Participated in coding competitions and technical events.</p>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+</div>
+<!-- EDUCATION -->
+<section id="education" class="py-5" style="background: linear-gradient(120deg, #dfe9f3, #ffffff);">
+  <div class="container">
+
+    <h2 class="text-center mb-5 animate__animated animate__fadeInDown">
+      🎓 Education
+    </h2>
+
+    <div class="row">
+
+      <!-- Education Card 1 -->
+      <div class="col-md-6 mb-4">
+        <div class="card shadow border-0 h-100">
+          <div class="card-body">
+            <h4 class="text-primary">Bachelor of Computer Science</h4>
+            <h6 class="text-muted">SPC College</h6>
+            <p><strong>Year:</strong> 2024 - Present</p>
+            <p><strong>Status:</strong> Second Year Running</p>
+            <p><strong>Percentage:</strong> 70.54%</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education Card 2 -->
+      <div class="col-md-6 mb-4">
+        <div class="card shadow border-0 h-100">
+          <div class="card-body">
+            <h4 class="text-success">S.S.c</h4>
+            <h6 class="text-muted">SPSC School</h6>
+            <p><strong>Year:</strong> 2023</p>
+            <p><strong>Percentage:</strong> 70.94%</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+</section>
+<!-- RESUME -->
+<section id="resume" class="py-5" style="background: linear-gradient(120deg, #6a11cb, #2575fc);">
+  <div class="container text-center text-white">
+
+    <h2 class="mb-4 animate__animated animate__fadeInDown">
+      📄 Resume
+    </h2>
+
+    <a href="res.html">
+     <button class="btn btn-light btn-lg px-4 shadow"
+            data-bs-toggle="modal"
+            data-bs-target="#resumeModal">
+      👁 View Resume
+    </button>
+    </a>
+
+    <!-- DOWNLOAD BUTTON -->
+    
+      ⬇ Download Resume
+    </a>
+
+  </div>
+</section>
+<section id="experience" class="py-5" style="background: linear-gradient(120deg, #d4fc79, #96e6a1);">
+<div class="container">
+
+<h2 class="text-center mb-5 text-dark animate__animated animate__fadeInDown">
+💼 Technical Experience
+</h2>
+
+<div class="row">
+
+<!-- Card 1 -->
+<div class="col-md-4 mb-3">
+<div class="card text-center shadow border-0 animate__animated animate__zoomIn">
+<div class="card-body">
+<h5 class="text-primary">🌐 Web Development</h5>
+<p>Built responsive websites using HTML, CSS, Bootstrap & JavaScript.</p>
+</div>
+</div>
+</div>
+
+<!-- Card 2 -->
+<div class="col-md-4 mb-3">
+<div class="card text-center shadow border-0 animate__animated animate__zoomIn animate__delay-1s">
+<div class="card-body">
+<h5 class="text-success">💻 Internship</h5>
+<p>Completed internship in web development and gained real project experience.</p>
+</div>
+</div>
+</div>
+
+<!-- Card 3 -->
+<div class="col-md-4 mb-3">
+<div class="card text-center shadow border-0 animate__animated animate__zoomIn animate__delay-2s">
+<div class="card-body">
+<h5 class="text-danger">⚡ Projects</h5>
+<p>Created multiple Bootstrap and JavaScript projects successfully.</p>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<script>
+let num1 = Math.floor(Math.random() * 10) + 1;
+let num2 = Math.floor(Math.random() * 10) + 1;
+let correctAnswer = num1 + num2;
+
+let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let captchaCode = "";
+
+for (let i = 0; i < 5; i++) {
+  captchaCode += letters.charAt(
+    Math.floor(Math.random() * letters.length)
+  );
+}
+
+document.getElementById("mathQuestion").innerHTML =
+  num1 + " + " + num2 + " = ?";
+
+document.getElementById("captchaCode").innerHTML =
+  captchaCode;
+
+function validateCaptcha() {
+
+  let mathInput =
+    document.getElementById("mathAnswer").value;
+
+  let codeInput =
+    document.getElementById("codeAnswer").value.toUpperCase();
+
+  if (mathInput == correctAnswer &&
+      codeInput == captchaCode) {
+
+    alert("✅ Message Sent Successfully!");
+
+    document.getElementById("contactForm").reset();
+
+  } else {
+
+    alert("❌ Invalid CAPTCHA. Please try again.");
+
+  }
+}
+</script>
+
+
+<!-- CONTACT -->
+<section id="contact" class="py-5 bg-dark text-white">
+  <div class="container">
+
+    <h2 class="text-center mb-4">📩 Contact Me</h2>
+
+    <div class="row">
+
+      <!-- Contact Details -->
+      <div class="col-md-5 mb-4">
+        <h4>Contact Information</h4>
+
+        <p>📞 <strong>Phone:</strong> +91 72491 67612</p>
+
+        <p>📧 <strong>Email:</strong> nitingalave@example.com</p>
+
+        <p>
+          💬 <strong>WhatsApp:</strong>
+          <a href="https://wa.me/917249167612"
+             target="_blank"
+             class="btn btn-success btn-sm ms-2">
+            Chat on WhatsApp
+          </a>
+        </p>
+
+        <p>📍 <strong>Location:</strong> Maharashtra, India</p>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="col-md-7">
+
+        <form id="contactForm">
+
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" rows="4" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">
+            Send Message
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<footer class="footer animate__animated animate__fadeInUp">
+    <div class="container text-center">
+
+        <h5 class="mb-2">🌟 My Portfolio</h5>
+        <p>Designed & Developed by <strong>Nitin Galave</strong></p>
+
+        <div class="social">
+            <a href="https://instagram.com/yourusername" target="_blank">📸 Instagram</a> |
+            <a href="https://wa.me/917249167612" target="_blank">💬 WhatsApp</a> |
+            <a href="#home">⬆ Top</a>
+        </div>
+
+        <p class="mt-3">© 2026 All Rights Reserved</p>
+
+    </div>
+
+</footer>
+
+<!-- BACK TO TOP -->
+<a href="#home" class="back-to-top">⬆</a>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/917249167612" class="whatsapp" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+</a>
+
+<!-- SCRIPT -->
+<script>
+const sections = document.querySelectorAll('.fade-section');
+
+window.addEventListener('scroll', () => {
+sections.forEach(section => {
+const top = section.getBoundingClientRect().top;
+
+if(top < window.innerHeight - 100){
+section.classList.add('show');
+}
+});
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<div class="modal fade" id="myModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">My Modal Title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body">
+        This is your modal content. You can add text, images, or forms here.
+      </div>
+
+      <!-- Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success">Save</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

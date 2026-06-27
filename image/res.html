@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Resume</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(120deg, #e0f7fa, #f4f6f9);
+    color: #333;
+}
+
+/* MAIN CONTAINER */
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* PROFILE IMAGE */
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #2196f3;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    margin-top: 20px;
+    animation: zoomIn 1s ease;
+    transition: 0.3s;
+}
+
+.profile-img:hover {
+    transform: scale(1.08) rotate(2deg);
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    border-bottom: 3px solid #4fc3f7;
+    padding-bottom: 20px;
+    background: linear-gradient(90deg, #4fc3f7, #2196f3);
+    color: white;
+    border-radius: 10px 10px 0 0;
+    padding-top: 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 34px;
+    animation: slideDown 1s ease;
+}
+
+header p {
+    margin: 5px 0;
+    opacity: 0.9;
+}
+
+/* SECTION */
+.section {
+    margin-bottom: 25px;
+    animation: fadeUp 0.8s ease;
+}
+
+/* HEADINGS */
+h2 {
+    color: #2196f3;
+    border-left: 5px solid #4fc3f7;
+    padding-left: 12px;
+    transition: 0.3s;
+}
+
+h2:hover {
+    transform: translateX(5px);
+    color: #0d47a1;
+}
+
+/* TWO COLUMN */
+.two-column {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.box {
+    width: 48%;
+    background: #f9fcff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.box:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.95);}
+    to {opacity: 1; transform: scale(1);}
+}
+
+@keyframes slideDown {
+    from {transform: translateY(-30px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+@keyframes fadeUp {
+    from {transform: translateY(20px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0.7); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .box {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- PROFILE IMAGE -->
+    <center>
+        <img src="N...g.jpeg" class="profile-img" alt="Profile Image">
+    </center>
+
+    <!-- HEADER -->
+    <header>
+        <h1>Nitin Galave</h1>
+        <p>Email: galavenitin1010@gmail.com | Phone: +91-7249167612 | Location: Sangli, India</p>
+    </header>
+
+    <!-- CAREER -->
+    <div class="section">
+        <h2>Career Objective</h2>
+        <p>
+            To obtain an entry-level position in a reputed organization where I can utilize my skills in HTML, CSS,
+            JavaScript and programming. I aim to grow as a full-stack developer and contribute effectively.
+        </p>
+    </div>
+
+    <!-- EDUCATION + SKILLS -->
+    <div class="section two-column">
+
+        <div class="box">
+            <h2>Education</h2>
+            <p><b>Diploma</b><br>SPC College<br>2022 - 2026</p>
+            <p><b>SSC</b><br>SPSC School<br>2022</p>
+        </div>
+
+        <div class="box">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>Bootstrap Basics</li>
+                <li>Python / Java</li>
+                <li>Problem Solving</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="section">
+        <h2>Projects</h2>
+        <ul>
+            <li><b>Portfolio Website</b> – HTML, CSS, JS</li>
+            <li><b>Student Management System</b> – CRUD App</li>
+        </ul>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="section">
+        <h2>Internship / Experience</h2>
+        <p>Fresher – Learning Web Development & building projects.</p>
+    </div>
+
+    <!-- LANGUAGES -->
+    <div class="section">
+        <h2>Languages</h2>
+        <ul>
+            <li>English</li>
+            <li>Hindi</li>
+            <li>Marathi</li>
+        </ul>
+    </div>
+
+    <!-- DECLARATION -->
+    <div class="section">
+        <h2>Declaration</h2>
+        <p>I hereby declare that all information is true to the best of my knowledge.</p>
+    </div>
+
+</div>
+
+</body>
+</html> 
